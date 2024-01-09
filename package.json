@@ -7,18 +7,25 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
-    "build:dev": "webpack --env mode=development"
+    "build:dev": "webpack --env mode=development",
+    "component": "generate-react component",
+    "feature": "generate-react feature",
+    "widget": "generate-react component --type=widget",
+    "shared": "generate-react component --type=shared"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.10.5",
     "@types/react-dom": "^18.2.18",
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
     "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
+    "generate-react-cli": "^8.4.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.69.7",
@@ -32,8 +39,12 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "i18next": "^23.7.16",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-http-backend": "^2.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^14.0.0",
     "react-loading": "^2.0.3",
     "react-router-dom": "^6.21.1"
   }
