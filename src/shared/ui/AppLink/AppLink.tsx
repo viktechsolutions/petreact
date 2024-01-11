@@ -3,10 +3,13 @@ import cls from './AppLink.module.scss';
 import {Link, LinkProps} from "react-router-dom";
 import {FC} from "react";
 
+/* eslint-disable */
 export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
 }
+
+/* eslint-enable */
 
 interface AppLinkProps extends LinkProps {
     className?: string;

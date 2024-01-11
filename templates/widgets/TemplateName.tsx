@@ -4,11 +4,13 @@ import cls from './TemplateName.module.scss';
 interface TemplateNameProps {
     className?: string
 }
+
 export const TemplateName = ({className}: TemplateNameProps) => {
-    return (
-        <div className={classNames(cls.TemplateName, {}, [className])}>
-         TemplateName
-        </div>
-    );
+  return (
+    <div className={classNames(cls.TemplateName, {}, [className])}>
+      TemplateName
+    </div>
+  );
 };
+
 

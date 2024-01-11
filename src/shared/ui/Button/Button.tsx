@@ -2,6 +2,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 import cls from './Button.module.scss';
 import {ButtonHTMLAttributes, FC} from "react";
 
+/* eslint-disable */
 export enum ThemeButton {
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clearInverted',
@@ -9,6 +10,9 @@ export enum ThemeButton {
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted'
 }
+
+/* eslint-enable */
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ThemeButton;

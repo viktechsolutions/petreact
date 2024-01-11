@@ -4,6 +4,7 @@ export function classNames(cls: string, mods?: Mods, additional?: string[]): str
     return [
         cls,
         ...additional.filter(Boolean),
+        // eslint-disable-next-line no-unused-vars
         ...Object.entries(mods).filter(([className, value]) => Boolean(value)).map(([className]) => className),
     ].join(' ');
 }
