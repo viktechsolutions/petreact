@@ -6,11 +6,17 @@
   "testLibrary": "None",
   "component": {
     "default": {
-      "path": "src/components",
-      "withStyle": false,
+      "customTemplates": {
+        "component": "templates/pages/TemplateName.tsx",
+        "style": "templates/pages/TemplateName.module.scss",
+        "index": "templates/pages/index.ts"
+      },
+      "path": "src/pages",
+      "withStyle": true,
       "withTest": false,
       "withStory": false,
-      "withLazy": false
+      "withLazy": false,
+      "withIndex": true
     },
     "widget": {
       "customTemplates": {
