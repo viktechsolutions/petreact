@@ -18,6 +18,7 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
+        "react-hooks"
     ],
     rules: {
         'react/jsx-filename-extension': [2, {extensions: ['.js', '.jsx', '.tsx']}],
@@ -32,6 +33,8 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
     },
     globals: {
         __IS_DEV__: true,

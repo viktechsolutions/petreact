@@ -1,8 +1,8 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import cls from './TemplateName.module.scss';
 
 interface TemplateNameProps {
-    className?: string
+  className?: string;
 }
 
 export const TemplateName = ({className}: TemplateNameProps) => {
@@ -12,5 +12,3 @@ export const TemplateName = ({className}: TemplateNameProps) => {
     </div>
   );
 };
-
-

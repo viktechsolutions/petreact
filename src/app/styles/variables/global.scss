@@ -16,7 +16,7 @@
   --font-size-ml: 18px;
   --font-line-ml: 26px;
   --font-ml: var(--font-size-ml) / var(--font-line-ml) var(--font-famaly-main);
-  
+
   --font-size-l: 20px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-famaly-main);
@@ -30,5 +30,7 @@
   --sidebar-width-collapsed: 80px;
   --sidebar-width: 240px;
 
+  --modal-z-index: 100;
 
+  --overlay-backdrop: rgba(0, 0, 0, 0.5);
 }
