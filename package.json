@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "webpack serve --env port=3000",
+    "start:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "component": "generate-react component",
@@ -38,6 +39,7 @@
     "file-loader": "^6.2.0",
     "generate-react-cli": "^8.4.0",
     "html-webpack-plugin": "^5.6.0",
+    "json-server": "^0.17.0",
     "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.69.7",
     "sass-loader": "^13.3.3",
