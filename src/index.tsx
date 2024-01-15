@@ -1,3 +1,4 @@
+import { StoreProvider } from 'app/providers/StoreProvider';
 import React from "react";
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
@@ -12,9 +13,11 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <BrowserRouter>
-    <ThemeProvider>
-      <App/>
-    </ThemeProvider>
-  </BrowserRouter>
+  <StoreProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <App/>
+      </ThemeProvider>
+    </BrowserRouter>
+  </StoreProvider>
 );

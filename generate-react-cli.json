@@ -41,6 +41,18 @@
       "withTest": false,
       "withStory": false,
       "withLazy": false
+    },
+    "entities": {
+      "customTemplates": {
+        "component": "templates/widgets/TemplateName.tsx",
+        "index": "templates/widgets/index.ts"
+      },
+      "path": "src/entities",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false,
+      "withIndex": true
     }
   }
 }
