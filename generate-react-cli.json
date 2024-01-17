@@ -44,8 +44,8 @@
     },
     "entities": {
       "customTemplates": {
-        "component": "templates/widgets/TemplateName.tsx",
-        "index": "templates/widgets/index.ts"
+        "component": "templates/entities/TemplateName.tsx",
+        "index": "templates/entities/index.ts"
       },
       "path": "src/entities",
       "withStyle": false,
