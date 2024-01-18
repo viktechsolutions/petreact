@@ -20,5 +20,11 @@ body {
 .page-wrapper {
   flex-grow: 1;
   padding: 1rem;
-  border-radius: 20px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
