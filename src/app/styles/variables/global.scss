@@ -1,6 +1,14 @@
 :root {
   --font-famaly-main: 'Roboto', "Calibri", sans-serif;
 
+  --font-size-xxxs: 8px;
+  --font-line-xxxs: 12px;
+  --font-xxxs: var(--font-size-xxxs) / var(--font-line-xxxs) var(--font-famaly-main);
+
+  --font-size-xxs: 10px;
+  --font-line-xxs: 14px;
+  --font-xxs: var(--font-size-xxs) / var(--font-line-xxs) var(--font-famaly-main);
+
   --font-size-xs: 12px;
   --font-line-xs: 16px;
   --font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-famaly-main);

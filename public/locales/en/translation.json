@@ -4,5 +4,7 @@
   "LANG": "EN",
   "тест": "test",
   "Страница не найдена": "Page not found",
-  "Войти": "Log in"
+  "Войти": "Log in",
+  "Имя": "Name",
+  "Пароль": "Password"
 }
