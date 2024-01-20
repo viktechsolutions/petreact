@@ -6,5 +6,7 @@
   "Страница не найдена": "Page not found",
   "Войти": "Log in",
   "Имя": "Name",
-  "Пароль": "Password"
+  "Пароль": "Password",
+  "Авторизация": "Authorization",
+  "Выйти": "Log out"
 }
