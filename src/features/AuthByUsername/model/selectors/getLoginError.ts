@@ -1,0 +1,1 @@
+export const getLoginError = (state: any) => state?.loginForm?.error || '';

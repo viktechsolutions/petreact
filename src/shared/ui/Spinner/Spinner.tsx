@@ -1,12 +1,20 @@
 import React from "react";
-import ReactLoading from "react-loading";
+import { Circles } from 'react-loader-spinner';
 import "./Spinner.scss";
 
-const Spinner = ({type, color} : {type: any, color: string}) => {
+const Spinner = () => {
 
   return (
-    <ReactLoading className="spinner" type={type} color={color} width={'50%'}/>
+    <Circles
+      height="80"
+      width="80"
+      color="#4fa94d"
+      ariaLabel="circles-loading"
+      wrapperStyle={{}}
+      wrapperClass="spinner"
+      visible={true}
+    />
   );
-}
+};
 
 export default Spinner;

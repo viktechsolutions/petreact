@@ -1,0 +1,1 @@
+export const getLoginPassword = (state: any) => state?.loginForm?.password || '';

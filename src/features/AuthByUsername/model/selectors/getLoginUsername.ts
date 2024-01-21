@@ -1,0 +1,1 @@
+export const getLoginUsername = (state: any) => state?.loginForm?.username || '';

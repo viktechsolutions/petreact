@@ -1,23 +1,34 @@
-import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState';
+import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError';
+import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading';
+import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword';
+import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
-import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
+import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from "shared/lib/classNames/classNames";
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm = memo(({className}: LoginFormProps) => {
+const initialReducer: ReducersList = {
+  loginForm: loginReducer
+};
+
+const LoginForm = memo(({className}: LoginFormProps) => {
   const {t} = useTranslation();
   const dispatch = useDispatch();
-  const {username, password, error, isLoading} = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const error = useSelector(getLoginError);
+  const isLoading = useSelector(getLoginIsLoading);
 
   const errorText = error ? String(error) : '';
   const onChangeUsername = useCallback((value: string) => {
@@ -29,21 +40,26 @@ export const LoginForm = memo(({className}: LoginFormProps) => {
   }, [dispatch]);
 
   const onLoginClick = useCallback(() => {
-    // @ts-ignore
+    //@ts-ignore
     dispatch(loginByUsername({username, password}));
   }, [dispatch, password, username]);
 
 
   return (
-    <div className={classNames(cls.LoginForm, {}, [className])}>
-      <Text title={t('Авторизация')}/>
-      {error && <Text text={errorText} theme={TextTheme.ERROR}/>}
-      <Input placeholder={t('Имя')} className={cls.input} type="text"
-             autoFocus onChange={onChangeUsername} value={username}/>
-      <Input placeholder={t('Пароль')} className={cls.input} type="text" onChange={onChangePassword} value={password}/>
-      <Button theme={ButtonTheme.OUTLINE} onClick={onLoginClick} disabled={isLoading}>{t('Войти')}</Button>
-    </div>
+    <DynamicModuleLoader removeAfterUnmount={true} reducers={initialReducer}>
+      <div className={classNames(cls.LoginForm, {}, [className])}>
+        <Text title={t('Авторизация')}/>
+        {error && <Text text={errorText} theme={TextTheme.ERROR}/>}
+        <Input placeholder={t('Имя')} className={cls.input} type="text"
+               autoFocus onChange={onChangeUsername} value={username}/>
+        <Input placeholder={t('Пароль')} className={cls.input} type="text" onChange={onChangePassword}
+               value={password}/>
+        <Button theme={ButtonTheme.OUTLINE} onClick={onLoginClick} disabled={isLoading}>{t('Войти')}</Button>
+      </div>
+    </DynamicModuleLoader>
   );
 });
 
 LoginForm.displayName = 'LoginForm';
+
+export default LoginForm;
