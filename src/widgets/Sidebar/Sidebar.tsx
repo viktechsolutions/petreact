@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import AboutIcon from 'shared/assets/icons/about.svg';
-import HomeIcon from 'shared/assets/icons/home.svg';
+import React, { memo, useMemo, useState } from "react";
 import MenuCollapseIcon from 'shared/assets/icons/menu-collapsed.svg';
 import MenuExpandIcon from 'shared/assets/icons/menu-expand.svg';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from "shared/lib/classNames/classNames";
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LangSwitcher } from "widgets/LangSwitcher/LangSwitcher";
+import { sidebarItemList } from 'widgets/Sidebar/model/item';
+import { SidebarItem } from 'widgets/Sidebar/SidebarItem/SidebarItem';
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import cls from './Sidebar.module.scss';
 
@@ -24,7 +22,7 @@ export enum SizeIcon {
 
 /* eslint-enable */
 
-export const Sidebar = ({className}: SidebarProps) => {
+export const Sidebar = memo(({className}: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = () => {
@@ -32,6 +30,10 @@ export const Sidebar = ({className}: SidebarProps) => {
   };
 
   const size = ButtonSize.L;
+
+  const itemList = useMemo(() => sidebarItemList.map((item) => (
+    <SidebarItem key={item.path} Item={item} collapsed={collapsed}/>
+  )), [collapsed]);
 
   return (
     <div className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
@@ -43,18 +45,9 @@ export const Sidebar = ({className}: SidebarProps) => {
           <MenuCollapseIcon className={cls.icon} width={SizeIcon.XL} height={SizeIcon.XL}/>}
       </Button>
       <div className={cls.items}>
-        <div>
-          <AppLink theme={AppLinkTheme.PRIMARY} to={AppRoutes.MAIN} className={cls.item}>
-            <HomeIcon className={cls.icon} width={SizeIcon.L} height={SizeIcon.L}/>
-            <span className={cls.link}> {collapsed ? '' : 'Main'}</span>
-          </AppLink>
-        </div>
-        <div>
-          <AppLink theme={AppLinkTheme.PRIMARY} to={AppRoutes.ABOUT} className={cls.item}>
-            <AboutIcon className={cls.icon} width={SizeIcon.L} height={SizeIcon.L}/>
-            <span className={cls.link}> {collapsed ? '' : 'About'}</span>
-          </AppLink>
-        </div>
+
+        {itemList}
+
       </div>
       <div className={cls.switcher}>
         <ThemeSwitcher/>
@@ -62,4 +55,6 @@ export const Sidebar = ({className}: SidebarProps) => {
       </div>
     </div>
   );
-};
+});
+
+Sidebar.displayName = 'Sidebar';

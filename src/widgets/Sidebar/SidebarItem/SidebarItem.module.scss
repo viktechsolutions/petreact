@@ -1,0 +1,44 @@
+.items {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.icon {
+  fill: var(--primary-color);
+}
+
+.radius {
+  border-radius: 50%;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switcher {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .lang {
+    margin-left: 0;
+  }
+}
+
+.collapsedBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+}

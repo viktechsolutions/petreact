@@ -23,3 +23,5 @@ export function createReduxStore(initialState?: StateSchema) {
 
   return store;
 }
+
+export type ApiDispatch = ReturnType<typeof createReduxStore>['dispatch'];

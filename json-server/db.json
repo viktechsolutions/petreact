@@ -34,6 +34,15 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "id": "1",
+    "name": "Ivan",
+    "surname": "Ivanov",
+    "username": "admin",
+    "age": 30,
+    "city": "Moscow",
+    "country": "Russia",
+    "currency": "RUB",
+    "description": "I am a programmer",
+    "avatar": "https://www.kindpng.com/picc/m/22-223863_transparent-avatar-png-male-avatar-icon-png.png"
   }
 }
